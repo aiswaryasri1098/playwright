@@ -1,0 +1,16 @@
+const{test,expect}=require("@playwright/test")
+test("keyboard function",async function({page})
+{
+    await page.goto("https://www.google.co.in/")
+    await page.locator("textarea[name='q']").type("automation")
+   /* await page.keyboard.press("Meta+A")
+    await page.keyboard.press("Meta+c")
+    await page.keyboard.press("Backspace")
+    await page.keyboard.press("Meta+v")
+    await page.waitForTimeout(2000)*/
+    await page.keyboard.down("Shift")
+    await page.keyboard.press("ArrowLeft")
+    await page.keyboard.up("Shift")
+    await page.keyboard.press("Backspace")
+    await page.waitForTimeout(2000)
+})

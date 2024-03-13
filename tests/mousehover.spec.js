@@ -1,0 +1,11 @@
+const{test,expect}=require('@playwright/test')
+test("the mousehover tst ",async function({page})
+{
+    await page.goto("https://freelance-learn-automation.vercel.app/login")
+    await page.getByPlaceholder("Enter Email").type("admin@email.com")
+    await page.getByPlaceholder("Enter Password").type("admin@123")
+    await page.locator("//button[@type='submit']").click()
+    await page.locator("//span[text()='Manage']").hover()
+    await page.locator("//a[normalize-space()='Manage Courses']").click()
+    await page.waitForTimeout(2000)
+})

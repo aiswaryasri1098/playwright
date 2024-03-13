@@ -1,0 +1,13 @@
+const{test,expect}=require('@playwright/test')
+const LoginPage=require("../node_modules/loginpage")
+const HomePage=require("../node_modules/homepage")
+test("pom",async function({page})
+{
+    await page.goto("https://freelance-learn-automation.vercel.app/login")
+    const Loginpage=new LoginPage(page)
+    await Loginpage.login()
+    const Homepage=new HomePage(page)
+    await Homepage.manage()
+    await Homepage.logout()
+    await Loginpage.loginpageheader()
+})
